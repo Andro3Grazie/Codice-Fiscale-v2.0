@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--  meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/transform.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="style/imgs/favicon.ico" type="image/x-icon">
+
+    <title>Calcolo Codice Fiscale v2.0</title>
+  </head>
+  <body>
+    <br class="d-none d-sm-block">
+      <div class="container color borderStyle rad text-white text-center py-3">
+        <div class="row">
+          <div class="col-3 my-auto d-none d-sm-block">
+            <img src="//upload.wikimedia.org/wikipedia/commons/0/00/Emblem_of_Italy.svg" width="70%" alt="">
+          </div>
+          <div class="col-12 my-auto col-sm-9">
+            <h1 class="mb-0 title">Calcolo Codice Fiscale</h1>
+          </div>
+        </div>
+      </div>
+    <div class="container jumbotron pt-0 pb-4">
+      <br>
+      <!-- Desktop -->
+      <div class="d-none d-md-block pt-1">
+        <div class="row">
+          <div class="col-3 text-right">
+            <label class="col-form-label">Nome</label>
+          </div>
+          <div class="col-9">
+            <div class="form-group"><input type="text" name="nome" autocomplete="given-name" class="form-control"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-right">
+            <label class="col-form-label">Cognome</label>
+          </div>
+          <div class="col-6">
+            <div class="form-group"><input type="text" name="cognome" autocomplete="family-name" class="form-control"></div>
+          </div>
+          <div class="col-1 text-right">
+            <label class="col-form-label">Sesso</label>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <div class="form-control text-center" id="div-select" style="display: none;"></div>
+                <select name="sesso" class="form-control">
+                  <option value="M">M</option>
+                  <option value="F">F</option>
+                </select>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-right">
+            <label class="col-form-label">Luogo di Nascita</label>
+          </div>
+          <div class="col-9">
+            <div class="form-group">
+              <input type="text" id="myInput" name="luogoNascita" autocomplete="disabled" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-right">
+            <label class="col-form-label">Provincia di Nascita</label>
+          </div>
+          <div class="col-5">
+            <div class="form-group"><input type="text" name="provinciaNascita" autocomplete="disabled" class="form-control uppercase" maxlength="2"></div>
+          </div>
+          <div class="col-4">
+            <input type="date" name="dataNascita" autocomplete="bday" class="form-control" id="bDate" >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center pt-4">
+            <div class="div-button"><button type="button" value="Calcola" class="btn color btn-block text-white button" onclick="calculate()">Calcola il codice fiscale</button></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Smartphone -->
+      <div class="d-block d-md-none">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group"><input type="text" name="nomeSmartphone" autocomplete="given-name" placeholder="Nome" class="form-control"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group"><input type="text" name="cognomeSmartphone" autocomplete="family-name" placeholder="Cognome" class="form-control"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <div class="form-control" id="div-selectSmartphone" style="display: none;"></div>
+                <select name="sessoSmartphone" class="form-control">
+                  <option value="" disabled selected>Sesso</option>
+                  <option value="Maschio">Maschio</option>
+                  <option value="Femmina">Femmina</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group"><input type="text" name="luogoNascitaSmartphone" autocomplete="disabled" placeholder="Luogo di nascita" class="form-control"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group"><input type="text" name="provinciaNascitaSmartphone" autocomplete="disabled" placeholder="Provincia di nascita" maxlength="2" class="form-control"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group"><input type="text" onfocus="(this.type='date')" name="dataNascitaSmartphone" autocomplete="bday" placeholder="Data di nascita" class="form-control" id="bDateSmartphone"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center pt-4">
+            <div class="div-button"><button type="button" value="Calcola" class="btn color btn-block text-white button" onclick="calculateSmartphone()">Calcola</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/smartphone.js"></script>
+    <script src="JS/functions.js"></script>
+    <script>
+      window.onload = function () {
+        $.getJSON("https://raw.githubusercontent.com/matteocontrini/comuni-json/master/comuni.json", function (data) {
+            $.each(data, function (key, val) {
+                nomeLuogo.push(val.nome.toLowerCase());
+                codiceCatastale.push(val.codiceCatastale);
+                sigla.push(val.sigla);
+            });
+        });
+      };
+
+      // function copycf() {
+      //   var copyText = document.querySelector("#cfcompleto");
+      //   copyText.select();
+      //   document.execCommand("copy");
+      // }
+    </script>
+  </body>
+</html>
