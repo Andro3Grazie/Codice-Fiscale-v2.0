@@ -41,11 +41,12 @@ function getMese() {
             return "T";
     }
 }
-//Prende il nome
-function getNome(string, bool) {
+//Prende il nome o cognome
+function getGeneralita(string, bool) {
     var risultato = "";
     var vowels = "AEIOU";
     //*La srtinga ha piu' di 2 caratteri
+    
     if (string.length > 2) {
         for (var i = 0; i < string.length; i++) {
             if (vowels.indexOf(string[i]) === -1) {
@@ -69,131 +70,134 @@ function getNome(string, bool) {
             //risultato <- [(prima, terza e quarta) consonante]
             risultato = risultato[0] + risultato[2] + risultato[3];
         }
+        //Se non e' il nome
+        else if (risultato.length > 3) {
+            risultato = risultato = risultato[0] + risultato[1] + risultato[2];
+        }
     } 
     //La srtinga ha meno di 2 caratteri
-    else {
+    else {        
         risultato = string;
         //Aggiungiamo la X fino ad arrivare a 3 caratteri totali
-        while(risultato.length < 2) {
+        while(risultato.length < 3) {
             risultato += "X"; //risultato <- X
         }
     }
     return risultato;
 }
 function carattereDiVerifica() {
-    var oddChar = 0; //Dispari
-    var evenChar = 0; //Pari
+    var sum = 0;
 
     for (var i = 0; i < cf.length; i++) {
         if (i % 2 == 0) { //Dispari
             switch (cf[i]) {
                 case '0':
-                    oddChar += 1;
+                    sum += 1;
                     break;
                 case '1':
-                    oddChar += 0;
+                    sum += 0;
                     break;
                 case '2':
-                    oddChar += 5;
+                    sum += 5;
                     break;
                 case '3':
-                    oddChar += 7;
+                    sum += 7;
                     break;
                 case '4':
-                    oddChar += 9;
+                    sum += 9;
                     break;
                 case '5':
-                    oddChar += 13;
+                    sum += 13;
                     break;
                 case '6':
-                    oddChar += 15;
+                    sum += 15;
                     break;
                 case '7':
-                    oddChar += 17;
+                    sum += 17;
                     break;
                 case '8':
-                    oddChar += 19;
+                    sum += 19;
                     break;
                 case '9':
-                    oddChar += 21;
+                    sum += 21;
                     break;
                 case 'A':
-                    oddChar += 1;
+                    sum += 1;
                     break;
                 case 'B':
-                    oddChar += 0;
+                    sum += 0;
                     break;
                 case 'C':
-                    oddChar += 5;
+                    sum += 5;
                     break;
                 case 'D':
-                    oddChar += 7;
+                    sum += 7;
                     break;
                 case 'E':
-                    oddChar += 9;
+                    sum += 9;
                     break;
                 case 'F':
-                    oddChar += 13;
+                    sum += 13;
                     break;
                 case 'G':
-                    oddChar += 15;
+                    sum += 15;
                     break;
                 case 'H':
-                    oddChar += 17;
+                    sum += 17;
                     break;
                 case 'I':
-                    oddChar += 19;
+                    sum += 19;
                     break;
                 case 'J':
-                    oddChar += 21;
+                    sum += 21;
                     break;
                 case 'K':
-                    oddChar += 2;
+                    sum += 2;
                     break;
                 case 'L':
-                    oddChar += 4;
+                    sum += 4;
                     break;
                 case 'M':
-                    oddChar += 18;
+                    sum += 18;
                     break;
                 case 'N':
-                    oddChar += 20;
+                    sum += 20;
                     break;
                 case 'O':
-                    oddChar += 11;
+                    sum += 11;
                     break;
                 case 'P':
-                    oddChar += 3;
+                    sum += 3;
                     break;
                 case 'Q':
-                    oddChar += 6;
+                    sum += 6;
                     break;
                 case 'R':
-                    oddChar += 8;
+                    sum += 8;
                     break;
                 case 'S':
-                    oddChar += 12;
+                    sum += 12;
                     break;
                 case 'T':
-                    oddChar += 14;
+                    sum += 14;
                     break;
                 case 'U':
-                    oddChar += 16;
+                    sum += 16;
                     break;
                 case 'V':
-                    oddChar += 10;
+                    sum += 10;
                     break;
                 case 'W':
-                    oddChar += 22;
+                    sum += 22;
                     break;
                 case 'X':
-                    oddChar += 25;
+                    sum += 25;
                     break;
                 case 'Y':
-                    oddChar += 24;
+                    sum += 24;
                     break;
                 case 'Z':
-                    oddChar += 23;
+                    sum += 23;
                     break;
                 default:
                     break;
@@ -202,118 +206,118 @@ function carattereDiVerifica() {
         else { //Pari
             switch (cf[i]) {
                 case '0':
-                    evenChar += 0;
+                    sum += 0;
                     break;
                 case '1':
-                    evenChar += 1;
+                    sum += 1;
                     break;
                 case '2':
-                    evenChar += 2;
+                    sum += 2;
                     break;
                 case '3':
-                    evenChar += 3;
+                    sum += 3;
                     break;
                 case '4':
-                    evenChar += 4;
+                    sum += 4;
                     break;
                 case '5':
-                    evenChar += 5;
+                    sum += 5;
                     break;
                 case '6':
-                    evenChar += 6;
+                    sum += 6;
                     break;
                 case '7':
-                    evenChar += 7;
+                    sum += 7;
                     break;
                 case '8':
-                    evenChar += 8;
+                    sum += 8;
                     break;
                 case '9':
-                    evenChar += 9;
+                    sum += 9;
                     break;
                 case 'A':
-                    evenChar += 0;
+                    sum += 0;
                     break;
                 case 'B':
-                    evenChar += 1;
+                    sum += 1;
                     break;
                 case 'C':
-                    evenChar += 2;
+                    sum += 2;
                     break;
                 case 'D':
-                    evenChar += 3;
+                    sum += 3;
                     break;
                 case 'E':
-                    evenChar += 4;
+                    sum += 4;
                     break;
                 case 'F':
-                    evenChar += 5;
+                    sum += 5;
                     break;
                 case 'G':
-                    evenChar += 6;
+                    sum += 6;
                     break;
                 case 'H':
-                    evenChar += 7;
+                    sum += 7;
                     break;
                 case 'I':
-                    evenChar += 8;
+                    sum += 8;
                     break;
                 case 'J':
-                    evenChar += 9;
+                    sum += 9;
                     break;
                 case 'K':
-                    evenChar += 10;
+                    sum += 10;
                     break;
                 case 'L':
-                    evenChar += 11;
+                    sum += 11;
                     break;
                 case 'M':
-                    evenChar += 12;
+                    sum += 12;
                     break;
                 case 'N':
-                    evenChar += 13;
+                    sum += 13;
                     break;
                 case 'O':
-                    evenChar += 14;
+                    sum += 14;
                     break;
                 case 'P':
-                    evenChar += 15;
+                    sum += 15;
                     break;
                 case 'Q':
-                    evenChar += 16;
+                    sum += 16;
                     break;
                 case 'R':
-                    evenChar += 17;
+                    sum += 17;
                     break;
                 case 'S':
-                    evenChar += 18;
+                    sum += 18;
                     break;
                 case 'T':
-                    evenChar += 19;
+                    sum += 19;
                     break;
                 case 'U':
-                    evenChar += 20;
+                    sum += 20;
                     break;
                 case 'V':
-                    evenChar += 21;
+                    sum += 21;
                     break;
                 case 'W':
-                    evenChar += 22;
+                    sum += 22;
                     break;
                 case 'X':
-                    evenChar += 23;
+                    sum += 23;
                     break;
                 case 'Y':
-                    evenChar += 24;
+                    sum += 24;
                     break;
                 case 'Z':
-                    evenChar += 25;
+                    sum += 25;
                     break;
                 default:
                     break;
             }
         }
     }
-    result = (oddChar + evenChar) - (Math.floor((oddChar + evenChar) / 26) * 26);
-    return String.fromCharCode(result + 65);
+
+    return (String.fromCharCode((sum) - (Math.floor((sum) / 26) * 26) + 65));
 }

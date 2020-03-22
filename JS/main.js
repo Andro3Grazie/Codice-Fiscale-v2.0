@@ -47,27 +47,31 @@ function getInfo() {
 //Funzione principale
 function calculate() {
     getInfo();
-    console.log(luogoNascita);
-    console.log(provinciaNascita);
-    
-    cf += getNome(cognome, "m") + getNome(nome, "n") + anno + getMese() + getGiorno() + getComune();
-    cf += carattereDiVerifica();
-    console.log(cf);
-    $("input[name=nome]").prop("disabled", true);
-    $("input[name=cognome]").prop("disabled", true);
-    $("#div-select").show();
-    $("select[name=sesso]").hide();
-    $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
-    $("input[name=luogoNascita]").prop("disabled", true);
-    $("input[name=provinciaNascita]").prop("disabled", true);
-    $("input[name=dataNascita]").prop("disabled", true);
 
-    $(".div-button").html(`
-    <div class="col-auto mx-5">
-        <div class="input-group mb-2">
-            <p type="text"  class="form-control"><span>${cf}</span></p>
-        </div>
-    </div>`);
+    if (nome && cognome && sesso && luogoNascita && provinciaNascita && dataNascita) {
+        cf += getGeneralita(cognome, "m") + getGeneralita(nome, "n") + anno + getMese() + getGiorno() + getComune();
+        cf += carattereDiVerifica();
+
+        $("input[name=nome]").prop("disabled", true);
+        $("input[name=cognome]").prop("disabled", true);
+        $("#div-select").show();
+        $("select[name=sesso]").hide();
+        $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
+        $("input[name=luogoNascita]").prop("disabled", true);
+        $("input[name=provinciaNascita]").prop("disabled", true);
+        $("input[name=dataNascita]").prop("disabled", true);
+
+    } else {
+        cf = 'IMPOSSIBILE CALCOLARE IL CODICE'
+    }
+
+    $(".div-button").html(
+        `<div class="col-auto mx-5">
+            <div class="input-group mb-2">
+                <p type="text"  class="form-control"><span>${cf}</span></p>
+            </div>
+        </div>`
+    );
 
     // CopyToClipboard
 //     $(".div-button").html(`<div class="col-auto mx-5">

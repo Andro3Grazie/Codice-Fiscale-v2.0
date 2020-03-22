@@ -33,17 +33,26 @@ function getInfoSmartphone() {
 //Funzione principale
 function calculateSmartphone() {
     getInfoSmartphone();
-    cf += getNome(cognome, "m") + getNome(nome, "n") + anno + getMese() + getGiorno() + getComune();
-    cf += carattereDiVerifica();
+    
 
-    $("input[name=nomeSmartphone]").prop("disabled", true);
-    $("input[name=cognomeSmartphone]").prop("disabled", true);
-    $("#div-selectSmartphone").show();
-    $("select[name=sessoSmartphone]").hide();
-    $("#div-selectSmartphone").html("<p>" + $("select[name=sessoSmartphone]").val() + "</p>");
-    $("input[name=luogoNascitaSmartphone]").prop("disabled", true);
-    $("input[name=provinciaNascitaSmartphone]").prop("disabled", true);
-    $("input[name=dataNascitaSmartphone]").prop("disabled", true);
+    if (nome && cognome && sesso && luogoNascita && provinciaNascita && dataNascita) {
+
+        cf += getGeneralita(cognome, "m") + getGeneralita(nome, "n") + anno + getMese() + getGiorno() + getComune();
+        cf += carattereDiVerifica();
+
+        $("input[name=nomeSmartphone]").prop("disabled", true);
+        $("input[name=cognomeSmartphone]").prop("disabled", true);
+        $("#div-selectSmartphone").show();
+        $("select[name=sessoSmartphone]").hide();
+        $("#div-selectSmartphone").html("<p>" + $("select[name=sessoSmartphone]").val() + "</p>");
+        $("input[name=luogoNascitaSmartphone]").prop("disabled", true);
+        $("input[name=provinciaNascitaSmartphone]").prop("disabled", true);
+        $("input[name=dataNascitaSmartphone]").prop("disabled", true);
+
+    }
+    else {
+        cf = 'IMPOSSIBILE CALCOLARLO'
+    }
 
     $(".div-button").html(`
     <div class="col-auto">
