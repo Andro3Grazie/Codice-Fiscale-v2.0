@@ -36,7 +36,7 @@
             <label class="col-form-label">Nome</label>
           </div>
           <div class="col-9">
-            <div class="form-group"><input type="text" name="nome" autocomplete="given-name" class="form-control"></div>
+            <div class="form-group"><input type="text" name="nome" autocomplete="given-name" class="form-control uppercase"></div>
           </div>
         </div>
         <div class="row">
@@ -44,7 +44,7 @@
             <label class="col-form-label">Cognome</label>
           </div>
           <div class="col-6">
-            <div class="form-group"><input type="text" name="cognome" autocomplete="family-name" class="form-control"></div>
+            <div class="form-group"><input type="text" name="cognome" autocomplete="family-name" class="form-control uppercase"></div>
           </div>
           <div class="col-1 text-right">
             <label class="col-form-label">Sesso</label>
@@ -65,7 +65,7 @@
           </div>
           <div class="col-9">
             <div class="form-group">
-              <input type="text" id="myInput" name="luogoNascita" autocomplete="disabled" class="form-control">
+              <input type="text" id="myInput" name="luogoNascita" autocomplete="disabled" class="form-control uppercase">
             </div>
           </div>
         </div>
@@ -91,19 +91,19 @@
       <div class="d-block d-md-none">
         <div class="row">
           <div class="col-12">
-            <div class="form-group"><input type="text" name="nomeSmartphone" autocomplete="given-name" placeholder="Nome" class="form-control"></div>
+            <div class="form-group"><input type="text" name="nomeSmartphone" autocomplete="given-name" placeholder="Nome" class="form-control uppercase"></div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="form-group"><input type="text" name="cognomeSmartphone" autocomplete="family-name" placeholder="Cognome" class="form-control"></div>
+            <div class="form-group"><input type="text" name="cognomeSmartphone" autocomplete="family-name" placeholder="Cognome" class="form-control uppercase"></div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
             <div class="form-group">
               <div class="form-control" id="div-selectSmartphone" style="display: none;"></div>
-                <select name="sessoSmartphone" class="form-control">
+                <select name="sessoSmartphone" class="form-control uppercase">
                   <option value="" disabled selected>Sesso</option>
                   <option value="Maschio">Maschio</option>
                   <option value="Femmina">Femmina</option>
@@ -113,17 +113,17 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="form-group"><input type="text" name="luogoNascitaSmartphone" autocomplete="disabled" placeholder="Luogo di nascita" class="form-control"></div>
+            <div class="form-group"><input type="text" name="luogoNascitaSmartphone" autocomplete="disabled" placeholder="Luogo di nascita" class="form-control uppercase"></div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="form-group"><input type="text" name="provinciaNascitaSmartphone" autocomplete="disabled" placeholder="Provincia di nascita" maxlength="2" class="form-control"></div>
+            <div class="form-group"><input type="text" name="provinciaNascitaSmartphone" autocomplete="disabled" placeholder="Provincia di nascita" maxlength="2" class="form-control uppercase"></div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="form-group"><input type="text" onfocus="(this.type='date')" name="dataNascitaSmartphone" autocomplete="bday" placeholder="Data di nascita" class="form-control" id="bDateSmartphone"></div>
+            <div class="form-group"><input type="text" onfocus="(this.type='date')" name="dataNascitaSmartphone" autocomplete="bday" placeholder="Data di nascita" class="form-control uppercase" id="bDateSmartphone"></div>
           </div>
         </div>
         <div class="row">
@@ -166,3 +166,16 @@
     </script>
   </body>
 </html>
+
+
+<div id="cookieConsent" hidden="" style="display: block;">
+  <h3>Il numero generato corrisponde alle regole del <em>D.M.del 12.3.1974</em></h3>
+  Non si può avere l'assoluta certezza dell'esattezza del codice.
+  <br>
+  Nel raro caso in cui il sistema genera due codici identici,
+  <u>due persone con nome e cognome simili, nati nello stesso comune il medesimo giorno</u>,
+  il Ministero delle Finanze provvede alla sostituzione di uno dei numeri con una lettera progressiva.
+  <a class="cookieConsentOK" onclick="$('#cookieConsent').hide()">OK, ho capito.</a>
+  <br>
+  <strong>Mi scuso per il disagio.</strong>
+</div>

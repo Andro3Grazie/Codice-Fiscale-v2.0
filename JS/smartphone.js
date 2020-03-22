@@ -51,7 +51,7 @@ function calculateSmartphone() {
 
     }
     else {
-        cf = 'IMPOSSIBILE CALCOLARLO'
+        cf = 'IMPOSSIBILE CALCOLARLO';
     }
 
     $(".div-button").html(`

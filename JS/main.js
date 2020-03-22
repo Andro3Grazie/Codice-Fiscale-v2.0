@@ -62,7 +62,7 @@ function calculate() {
         $("input[name=dataNascita]").prop("disabled", true);
 
     } else {
-        cf = 'IMPOSSIBILE CALCOLARE IL CODICE'
+        cf = 'IMPOSSIBILE CALCOLARE IL CODICE';
     }
 
     $(".div-button").html(
