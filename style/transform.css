@@ -1,3 +1,6 @@
 .uppercase {
     text-transform: uppercase;
 }
+.display-none {
+    display: none;
+}

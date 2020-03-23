@@ -85,6 +85,13 @@
             <div class="div-button"><button type="button" value="Calcola" class="btn color btn-block text-white button" onclick="calculate()">Calcola il codice fiscale</button></div>
           </div>
         </div>
+        <div class="row reset-button display-none">
+          <div class="col-12">
+            <div class="text-right">
+              <button type="button" class="btn color text-white" data-toggle="button" aria-pressed="false" onclick="reset()">Ricalcola</button>
+            </div>
+          </div>
+        </div>
       </div>
       
       <!-- Smartphone -->
@@ -128,12 +135,19 @@
         </div>
         <div class="row">
           <div class="col-12 text-center pt-4">
-            <div class="div-button"><button type="button" value="Calcola" class="btn color btn-block text-white button" onclick="calculateSmartphone()">Calcola</button></div>
+            <div class="div-button"><button type="button" value="Calcola" class="btn color btn-block text-white button inputs" onclick="calculateSmartphone()">Calcola</button></div>
+          </div>
+        </div>
+        <div class="row reset-button display-none">
+          <div class="col-12 text-center">
+            <div class="col-auto">
+              <div class="input-group mb-2">
+                <button type="button" class="btn color btn-block text-white button inputs" data-toggle="button" aria-pressed="false" onclick="resetSmartphone()">Ricalcola</button>
+              </div>
           </div>
         </div>
       </div>
     </div>
-    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

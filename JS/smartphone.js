@@ -54,10 +54,30 @@ function calculateSmartphone() {
         cf = 'IMPOSSIBILE CALCOLARLO';
     }
 
+    $(".reset-button").removeClass("display-none");
+
     $(".div-button").html(`
     <div class="col-auto">
         <div class="input-group mb-2">
             <p type="text"  class="form-control"><span>${cf}</span></p>
         </div>
     </div>`);
+}
+function resetSmartphone() {
+    if (cf != 'IMPOSSIBILE CALCOLARE IL CODICE') {
+        $("input[name=nomeSmartphone]").prop("disabled", false);
+        $("input[name=cognomeSmartphone]").prop("disabled", false);
+        $("#div-selectSmartphone").hide();
+        $("select[name=sessoSmartphone]").show();
+        $("#div-selectSmartphone").html("<p>" + $("select[name=sessoSmartphone]").val() + "</p>");
+        $("input[name=luogoNascitaSmartphone]").prop("disabled", false);
+        $("input[name=provinciaNascitaSmartphone]").prop("disabled", false);
+        $("input[name=dataNascitaSmartphone]").prop("disabled", false);
+    }
+
+    $(".reset-button").addClass("display-none");
+
+    $(".div-button").html(
+        `<button type="button" value="Calcola" class="btn color btn-block text-white button inputs" onclick="calculateSmartphone()">Calcola</button>`
+    );
 }

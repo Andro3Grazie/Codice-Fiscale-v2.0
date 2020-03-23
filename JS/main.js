@@ -60,10 +60,12 @@ function calculate() {
         $("input[name=luogoNascita]").prop("disabled", true);
         $("input[name=provinciaNascita]").prop("disabled", true);
         $("input[name=dataNascita]").prop("disabled", true);
-
+        
     } else {
         cf = 'IMPOSSIBILE CALCOLARE IL CODICE';
     }
+    
+    $(".reset-button").removeClass("display-none");
 
     $(".div-button").html(
         `<div class="col-auto mx-5">
@@ -82,4 +84,23 @@ function calculate() {
 //       </div>
 //     </div>
 //   </div>`);
+}
+
+function reset() {
+    if (cf != 'IMPOSSIBILE CALCOLARE IL CODICE') {
+        $("input[name=nome]").prop("disabled", false);
+        $("input[name=cognome]").prop("disabled", false);
+        $("#div-select").hide();
+        $("select[name=sesso]").show();
+        $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
+        $("input[name=luogoNascita]").prop("disabled", false);
+        $("input[name=provinciaNascita]").prop("disabled", false);
+        $("input[name=dataNascita]").prop("disabled", false);
+    }
+
+    $(".reset-button").addClass("display-none");
+
+    $(".div-button").html(
+        `<button type="button" value="Calcola" class="btn color btn-block text-white button" onclick="calculate()">Calcola il codice fiscale</button>`
+    );
 }
