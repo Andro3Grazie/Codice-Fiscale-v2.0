@@ -10,8 +10,8 @@ var anno = "";
 var mese = "";
 var giorno = "";
 var nomeLuogo = []; //Nomi delle città 
-var codiceCatastale = []; //codice catastale delle città
-var sigla = []; //sigla delle città
+var codiceCatastale = []; //Codice catastale delle città
+var comune = []; //sigla delle città
 
 function getInfo() {
     //Inizializza a "vuoto" la variabile
@@ -48,22 +48,27 @@ function getInfo() {
 function calculate() {
     getInfo();
 
-    if (nome && cognome && sesso && luogoNascita && provinciaNascita && dataNascita) {
-        cf += getGeneralita(cognome, "m") + getGeneralita(nome, "n") + anno + getMese() + getGiorno() + getComune();
-        cf += carattereDiVerifica();
-
-        $("input[name=nome]").prop("disabled", true);
-        $("input[name=cognome]").prop("disabled", true);
-        $("#div-select").show();
-        $("select[name=sesso]").hide();
-        $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
-        $("input[name=luogoNascita]").prop("disabled", true);
-        $("input[name=provinciaNascita]").prop("disabled", true);
-        $("input[name=dataNascita]").prop("disabled", true);
-        
+    if (nome && cognome && sesso && dataNascita) {
+        cf += getGeneralita(cognome, "m") + getGeneralita(nome, "n") + anno + getMese() + getGiorno();
+        var cc = getCC();
+        if (cc == false) {
+            cf = 'IMPOSSIBILE TROVARE IL COMUNE';
+        } else {
+            cf += cc;
+            cf += carattereDiVerifica();
+        }   
     } else {
         cf = 'IMPOSSIBILE CALCOLARE IL CODICE';
     }
+
+    $("input[name=nome]").prop("disabled", true);
+    $("input[name=cognome]").prop("disabled", true);
+    $("#div-select").show();
+    $("select[name=sesso]").hide();
+    $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
+    $("input[name=luogoNascita]").prop("disabled", true);
+    $("input[name=provinciaNascita]").prop("disabled", true);
+    $("input[name=dataNascita]").prop("disabled", true);
     
     $(".reset-button").removeClass("display-none");
 
@@ -87,16 +92,14 @@ function calculate() {
 }
 
 function reset() {
-    if (cf != 'IMPOSSIBILE CALCOLARE IL CODICE') {
-        $("input[name=nome]").prop("disabled", false);
-        $("input[name=cognome]").prop("disabled", false);
-        $("#div-select").hide();
-        $("select[name=sesso]").show();
-        $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
-        $("input[name=luogoNascita]").prop("disabled", false);
-        $("input[name=provinciaNascita]").prop("disabled", false);
-        $("input[name=dataNascita]").prop("disabled", false);
-    }
+    $("input[name=nome]").prop("disabled", false);
+    $("input[name=cognome]").prop("disabled", false);
+    $("#div-select").hide();
+    $("select[name=sesso]").show();
+    $("#div-select").html("<p>" + $("select[name=sesso]").val() + "</p>");
+    $("input[name=luogoNascita]").prop("disabled", false);
+    $("input[name=provinciaNascita]").prop("disabled", false);
+    $("input[name=dataNascita]").prop("disabled", false);
 
     $(".reset-button").addClass("display-none");
 

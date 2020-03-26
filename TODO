@@ -1,2 +1,13 @@
 Todo:
   - invio per andare avanti (telefono)
+  - tasto copia dove compare il cf
+  - cerca di capire dove prende la lista con i codici catastali il sito www.codicefiscaleonline.com
+  - cercare di capire come risolvere la funzione getCC()
+Done:
+  - non calcola il codice se prima e' stato calcolato a vuoto (desktop)
+  - se e' impossibile calcolare il comune/codice non blocca i campi
+  - quando i campi sono bloccati il sesso e' minuscolo (perche' prende il value) (telefono)
+  - il sesso e' null se il campo non e' stato completato (tel)
+  - sistema il sesso quando viene calcolato a vuoto (tel)
+  - colori dei placeholder (quando vuoti e quando completati) una volta cliccato 'calcola'
+

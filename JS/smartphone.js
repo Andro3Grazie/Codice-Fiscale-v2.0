@@ -34,37 +34,47 @@ function getInfoSmartphone() {
 function calculateSmartphone() {
     getInfoSmartphone();
     
-
-    if (nome && cognome && sesso && luogoNascita && provinciaNascita && dataNascita) {
-
-        cf += getGeneralita(cognome, "m") + getGeneralita(nome, "n") + anno + getMese() + getGiorno() + getComune();
-        cf += carattereDiVerifica();
-
-        $("input[name=nomeSmartphone]").prop("disabled", true);
-        $("input[name=cognomeSmartphone]").prop("disabled", true);
-        $("#div-selectSmartphone").show();
-        $("select[name=sessoSmartphone]").hide();
-        $("#div-selectSmartphone").html("<p>" + $("select[name=sessoSmartphone]").val() + "</p>");
-        $("input[name=luogoNascitaSmartphone]").prop("disabled", true);
-        $("input[name=provinciaNascitaSmartphone]").prop("disabled", true);
-        $("input[name=dataNascitaSmartphone]").prop("disabled", true);
-
-    }
-    else {
+    if (nome && cognome && sesso && dataNascita) {
+        cf += getGeneralita(cognome, "m") + getGeneralita(nome, "n") + anno + getMese() + getGiorno();
+        var cc = getCC();
+        if (cc == false) {
+            cf = 'COMUNE NON TROVATO';
+        } else {
+            cf += cc;
+            cf += carattereDiVerifica();
+            //CIN = Control Internal Number --> Codice di controllo
+            CIN();
+        }   
+    } else {
         cf = 'IMPOSSIBILE CALCOLARLO';
     }
+
+    $("input[name=nomeSmartphone]").prop("disabled", true);
+    $("input[name=cognomeSmartphone]").prop("disabled", true);
+    $("#div-selectSmartphone").show();
+    $("select[name=sessoSmartphone]").hide();
+    var valsel;
+    if ($("select[name=sessoSmartphone]").val() === null) {
+        valsel = "<p style='color: #6c757d;'>Sesso</p>"
+    } else {
+        valsel = "<p style='color: #495057;'>" + $('select[name=sessoSmartphone]').val() + "</p>";//#6c757d;
+    }
+    $("#div-selectSmartphone").html(valsel);
+    $("input[name=luogoNascitaSmartphone]").prop("disabled", true);
+    $("input[name=provinciaNascitaSmartphone]").prop("disabled", true);
+    $("input[name=dataNascitaSmartphone]").prop("disabled", true);
 
     $(".reset-button").removeClass("display-none");
 
     $(".div-button").html(`
     <div class="col-auto">
         <div class="input-group mb-2">
-            <p type="text"  class="form-control"><span>${cf}</span></p>
+            <p type="text" class="form-control"><span>${cf}</span></p>
         </div>
     </div>`);
 }
 function resetSmartphone() {
-    if (cf != 'IMPOSSIBILE CALCOLARE IL CODICE') {
+    if (cognome != true) {
         $("input[name=nomeSmartphone]").prop("disabled", false);
         $("input[name=cognomeSmartphone]").prop("disabled", false);
         $("#div-selectSmartphone").hide();
@@ -74,10 +84,21 @@ function resetSmartphone() {
         $("input[name=provinciaNascitaSmartphone]").prop("disabled", false);
         $("input[name=dataNascitaSmartphone]").prop("disabled", false);
     }
+    if (cognome == true) {
+        cognome = false;
+        $("#mostra").addClass("display-none");
+        $("#ricalcola").removeClass("display-none");
+        $(".div-button").html(`
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                    <p type="text" class="form-control"><span>${nome}</span></p>
+                </div>
+            </div>`);
+    }else {
+        $(".reset-button").addClass("display-none");
 
-    $(".reset-button").addClass("display-none");
-
-    $(".div-button").html(
-        `<button type="button" value="Calcola" class="btn color btn-block text-white button inputs" onclick="calculateSmartphone()">Calcola</button>`
-    );
+        $(".div-button").html(
+            `<button type="button" value="Calcola" class="btn color btn-block text-white button inputs" onclick="calculateSmartphone()">Calcola</button>`
+        );
+    }
 }

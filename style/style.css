@@ -26,7 +26,14 @@ body {
     background-color: rgb(0, 71, 163);
     /* background: linear-gradient(to bottom, #41C112 0%,#029b00 100%); */
 }
-
+.message-color {
+    background-color: #f3f3f3;
+    color: #212529;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 0.250rem;
+}
 @media screen and (min-width: 768px) {
     .jumbotron, .borderStyle {
         width: 720px;

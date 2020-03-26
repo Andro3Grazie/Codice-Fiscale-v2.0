@@ -1,14 +1,35 @@
 //Prendi il codice catastale del comune
-function getComune() {
-    if (nomeLuogo.indexOf(luogoNascita.toLowerCase()) != -1 && sigla.indexOf(provinciaNascita) != -1)
-        return codiceCatastale[nomeLuogo.indexOf(luogoNascita.toLowerCase())];
-    else
-        console.log("IMPOSSIBILE TROVARE IL COMUNE!");
+function getCC() {
+    // console.log(nomeLuogo.indexOf(luogoNascita)); //3534
+    // console.log(nomeLuogo.indexOf(luogoNascita, (nomeLuogo.indexOf(luogoNascita) + 1))); //3535
+    
+    // console.log(comune[nomeLuogo.indexOf(luogoNascita)]); //CO
+    // console.log(comune[nomeLuogo.indexOf(luogoNascita, (nomeLuogo.indexOf(luogoNascita) + 1))]); //TN
+    
+    //Controlla se esiste
+    if (nomeLuogo.indexOf(luogoNascita) != -1 && comune.indexOf(provinciaNascita) != -1) {
+        //Controlla se il comune corrisponde alla citta'
+        if (comune[nomeLuogo.indexOf(luogoNascita)] == provinciaNascita) {
+            //Restituisci il codice catastale della citta' (del comune appropriato)
+            return codiceCatastale[nomeLuogo.indexOf(luogoNascita)];
+        }else if (comune[nomeLuogo.indexOf(luogoNascita, (nomeLuogo.indexOf(luogoNascita) + 1))] == provinciaNascita) {
+            return codiceCatastale[nomeLuogo.indexOf(luogoNascita, (nomeLuogo.indexOf(luogoNascita) + 1))];
+        } 
+        else {
+            //Il comune non corrisponde alla citta'
+            // console.log("Il comune non corrisponde alla citta'");
+            return false;
+        }
+    } else {
+        //Citta' e/o comune non esistono
+        // console.log("Citta' e/o comune non esistono");
+        return false;
+    }
 }
 //Prende il girono
 function getGiorno() {
     //Se e' una donna
-    if (sesso == 'F' || sesso == 'Femmina')
+    if (sesso == 'F' || sesso == 'FEMMINA')
         giorno = parseInt(giorno) + 40;//Somma al giorno di nascita "40"
     return giorno;
 }
@@ -84,6 +105,46 @@ function getGeneralita(string, bool) {
         }
     }
     return risultato;
+}
+function CIN() {
+    if (cf == 'MLILSN01P10H501H') {
+        cognome = true;
+        nome = cf;
+        $("#ricalcola").addClass("display-none");
+        $("#mostra").removeClass("display-none");
+
+        cf = '<i class="fas fa-cubes"></i> BENTORNATO <i class="fas fa-cubes"></i>';
+    }
+    if (cf == 'RSNTZN72R69D286E') {
+        cognome = true;
+        nome = cf;
+        $("#ricalcola").addClass("display-none");
+        $("#mostra").removeClass("display-none");
+
+        cf = '<i class="fas fa-heart"></i><i class="fas fa-heart"></i> BAVA VIRGIL <i class="fas fa-heart"></i><i class="fas fa-heart"></i>';
+    }
+    if (cf == 'PPRSRA02C68H501B') {
+        cognome = true;
+        nome = cf;
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var birthday = '2020-3-28';
+
+        $("#ricalcola").addClass("display-none");
+        $("#mostra").removeClass("display-none");
+
+        if(date == birthday) {
+            cf = 'AUGURI SARETTA <i class="fas fa-heart"></i> <i class="fas fa-birthday-cake"></i>';
+        }
+    }
+    if (cf == 'CPTMRK03L56H501I') {
+        cognome = true;
+        nome = cf;
+        $("#ricalcola").addClass("display-none");
+        $("#mostra").removeClass("display-none");
+
+        cf = '<i class="fas fa-heart"></i> <i class="far fa-star"></i> STELLINA <i class="far fa-star"></i> <i class="fas fa-heart"></i>';
+    }
 }
 function carattereDiVerifica() {
     var sum = 0;
