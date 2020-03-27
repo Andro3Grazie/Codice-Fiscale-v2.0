@@ -69,7 +69,7 @@ function calculateSmartphone() {
     $(".div-button").html(`
     <div class="col-auto">
         <div class="input-group mb-2">
-            <p type="text" class="form-control"><span>${cf}</span></p>
+            <button type="text" class="form-control" onclick="copyToClipboard(cf)" title="Copia"><span>${cf}</span></button>
         </div>
     </div>`);
 }
@@ -91,7 +91,7 @@ function resetSmartphone() {
         $(".div-button").html(`
             <div class="col-auto">
                 <div class="input-group mb-2">
-                    <p type="text" class="form-control"><span>${nome}</span></p>
+                    <button type="text" class="form-control" onclick="copyToClipboard(nome)"><span>${nome}</span></button>
                 </div>
             </div>`);
     }else {

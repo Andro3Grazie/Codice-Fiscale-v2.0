@@ -75,20 +75,11 @@ function calculate() {
     $(".div-button").html(
         `<div class="col-auto mx-5">
             <div class="input-group mb-2">
-                <p type="text"  class="form-control"><span>${cf}</span></p>
+                <button type="" class="form-control" onclick="copyToClipboard(cf)" title="Copia"><span>${cf}</span></button>
             </div>
-        </div>`
+        </div>
+        `
     );
-
-    // CopyToClipboard
-//     $(".div-button").html(`<div class="col-auto mx-5">
-//     <div class="input-group mb-2">
-//       <p type="text"  class="form-control"><span id="cfcompleto">${cf}</span></p>
-//       <div class="input-group-prepend">
-//         <div class="input-group-text copy-font" onclick="copycf();">Copia</div>
-//       </div>
-//     </div>
-//   </div>`);
 }
 
 function reset() {
