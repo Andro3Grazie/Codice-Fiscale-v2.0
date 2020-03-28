@@ -72,14 +72,30 @@ function calculate() {
     
     $(".reset-button").removeClass("display-none");
 
-    $(".div-button").html(
-        `<div class="col-auto mx-5">
-            <div class="input-group mb-2">
-                <button type="" class="form-control" onclick="copyToClipboard(cf)" title="Copia"><span>${cf}</span></button>
-            </div>
-        </div>
-        `
-    );
+    if (cf == 'IMPOSSIBILE TROVARE IL COMUNE' || cf == 'IMPOSSIBILE CALCOLARE IL CODICE') {
+        $(".div-button").html(
+            `<div class="col-auto mx-5">
+                <div class="input-group mb-2">
+                    <p class="form-control"><span>${cf}</span></p>
+                </div>
+            </div>`
+        );
+    } else {
+        $(".div-button").html(
+            `<div class="col-auto mx-5">
+                <div class="input-group mb-2 pop" data-container="body" data-toggle="popover" data-placement="top" data-content="Copiato" onclick="copyToClipboard(cf);">
+                    <div class="input-group mb-2" id="copy" data-toggle="tooltip" data-placement="right" title="Copia">
+                        <button class="form-control" style="border-radius: 0.25rem 0 0 0.25rem;"><span>${cf}</span></button>
+                        <div class="input-group-prepend mouse-click">
+                            <span class="input-group-text" style="border-radius: 0 0.25rem 0.25rem 0; border-left-width: 0px;"><i class="fas fa-copy"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        );
+    }
+    
+    activeTooltip();
 }
 
 function reset() {

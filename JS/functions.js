@@ -112,18 +112,16 @@ function CIN() {
         nome = cf;
         $("#ricalcola").addClass("display-none");
         $("#mostra").removeClass("display-none");
-
+                
         cf = '<i class="fas fa-cubes"></i> BENTORNATO <i class="fas fa-cubes"></i>';
-    }
-    if (cf == 'RSNTZN72R69D286E') {
+    }else if (cf == 'RSNTZN72R69D286E') {
         cognome = true;
         nome = cf;
         $("#ricalcola").addClass("display-none");
         $("#mostra").removeClass("display-none");
-
+        
         cf = '<i class="fas fa-heart"></i><i class="fas fa-heart"></i> BAVA VIRGIL <i class="fas fa-heart"></i><i class="fas fa-heart"></i>';
-    }
-    if (cf == 'PPRSRA02C68H501B') {
+    }else if (cf == 'PPRSRA02C68H501B') {
         cognome = true;
         nome = cf;
         var today = new Date();
@@ -136,14 +134,15 @@ function CIN() {
         if(date == birthday) {
             cf = 'AUGURI SARETTA <i class="fas fa-heart"></i> <i class="fas fa-birthday-cake"></i>';
         }
-    }
-    if (cf == 'CPTMRK03L56H501I') {
+    }else if (cf == 'CPTMRK03L56H501I') {
         cognome = true;
         nome = cf;
         $("#ricalcola").addClass("display-none");
         $("#mostra").removeClass("display-none");
 
         cf = '<i class="fas fa-heart"></i> <i class="far fa-star"></i> STELLINA <i class="far fa-star"></i> <i class="fas fa-heart"></i>';
+    }else {
+        return false;
     }
 }
 function carattereDiVerifica() {
@@ -401,4 +400,21 @@ function copyToClipboard (string) {
         document.getSelection().addRange(selected);   // Restore the original selection
     }
 };
+function activeTooltip() {
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+    $(".input-group").click(function(){
+        $("[data-toggle='tooltip']").tooltip('hide');
+    });
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
+    $('.pop').popover().click(function () {
+        setTimeout(function () {
+            $('.pop').popover('hide');
+        }, 2000);
+    });
+}
+
 

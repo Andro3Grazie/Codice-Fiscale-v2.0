@@ -42,8 +42,7 @@ function calculateSmartphone() {
         } else {
             cf += cc;
             cf += carattereDiVerifica();
-            //CIN = Control Internal Number --> Codice di controllo
-            CIN();
+            var check = CIN();
         }   
     } else {
         cf = 'IMPOSSIBILE CALCOLARLO';
@@ -65,13 +64,28 @@ function calculateSmartphone() {
     $("input[name=dataNascitaSmartphone]").prop("disabled", true);
 
     $(".reset-button").removeClass("display-none");
-
-    $(".div-button").html(`
-    <div class="col-auto">
-        <div class="input-group mb-2">
-            <button type="text" class="form-control" onclick="copyToClipboard(cf)" title="Copia"><span>${cf}</span></button>
-        </div>
-    </div>`);
+ 
+    if (check === false) {
+        $(".div-button").html(`
+            <div class="col-auto">
+                <div class="input-group mb-2 pop" data-container="body" data-toggle="popover" data-placement="top" data-content="Copiato" onclick="copyToClipboard(cf)">
+                    <button type="text" class="form-control"><span>${cf}</span></button>
+                    <div class="input-group-prepend mouse-click">
+                        <span class="input-group-text" style="border-radius: 0 0.25rem 0.25rem 0; border-left-width: 0px;"><i class="fas fa-copy"></i></span>
+                    </div>
+                </div>
+            </div>
+        `);
+    }else {
+        $(".div-button").html(`
+            <div class="col-auto" >
+                <div class="input-group mb-2">
+                    <p type="text" class="form-control"><span>${cf}</span></p>
+                </div>
+            </div>
+        `);
+    }
+    activeTooltip();
 }
 function resetSmartphone() {
     if (cognome != true) {
@@ -90,10 +104,14 @@ function resetSmartphone() {
         $("#ricalcola").removeClass("display-none");
         $(".div-button").html(`
             <div class="col-auto">
-                <div class="input-group mb-2">
-                    <button type="text" class="form-control" onclick="copyToClipboard(nome)"><span>${nome}</span></button>
+                <div class="input-group mb-2 pop" data-container="body" data-toggle="popover" data-placement="top" data-content="Copiato" onclick="copyToClipboard(nome)">
+                    <button type="text" class="form-control"><span>${nome}</span></button>
+                    <div class="input-group-prepend mouse-click">
+                        <span class="input-group-text" style="border-radius: 0 0.25rem 0.25rem 0; border-left-width: 0px;"><i class="fas fa-copy"></i></span>
+                    </div>
                 </div>
             </div>`);
+            
     }else {
         $(".reset-button").addClass("display-none");
 
@@ -101,4 +119,5 @@ function resetSmartphone() {
             `<button type="button" value="Calcola" class="btn color btn-block text-white button inputs" onclick="calculateSmartphone()">Calcola</button>`
         );
     }
+    activeTooltip();
 }

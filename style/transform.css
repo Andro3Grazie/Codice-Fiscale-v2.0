@@ -4,6 +4,12 @@
 .display-none {
     display: none;
 }
+.mouse-click:hover {
+    cursor: pointer;
+}
+.color {
+    background-color: rgb(0, 71, 163);
+}
 ::-webkit-input-placeholder { /* WebKit browsers */
     text-transform: none;
 }

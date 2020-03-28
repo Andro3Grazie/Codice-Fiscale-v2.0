@@ -1,7 +1,8 @@
 body {
     font-family: Arial;
     background-color: #f3f3f3;
-    /* background: linear-gradient(to right, #70e0a2 0%, #8fd3b0 25%, #bbeae7 50%, #8fd3b0 75%, #70e0a2 100%);; */
+    /* background: rgb(0,128,0);
+    background: linear-gradient(90deg, rgba(0,128,0,1) 0%, rgba(255,255,255,1) 50%, rgba(202,0,0,1) 100%); */
 } 
 .jumbotron, .borderStyle {
     background-color: white;
@@ -21,10 +22,6 @@ body {
 .title {
     font-size: 48px;
     font-family: Georgia, serif;
-}
-.color {
-    background-color: rgb(0, 71, 163);
-    /* background: linear-gradient(to bottom, #41C112 0%,#029b00 100%); */
 }
 .message-color {
     background-color: #f3f3f3;
@@ -47,4 +44,5 @@ body {
     .rad {
         border-radius: 10px 10px 0 0;
     }
+
 }
