@@ -10,6 +10,67 @@
 .color {
     background-color: rgb(0, 71, 163);
 }
+.border-none {
+    border: none;
+}
+.display-none {
+    display: none;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+.overflow-none {
+    overflow: hidden;
+}
+.disable-link {
+    color: rgba(0,0,0,.3)!important;
+    pointer-events: none;
+    cursor: default;
+}
+.c-pointer {
+    cursor: pointer;
+}
+.c-pointer:hover {
+    cursor: pointer;
+}
+/* media query */
+
+/* large tablet */
+@media screen and (max-width: 992px) {
+    /* Do not display on large tablet screen */
+    .display-none-lg {
+        display: none;
+    }
+}
+/* tablet */
+@media screen and (max-width: 768px) {
+    /* Do not display on tablet screen */
+    .display-none-md {
+        display: none;
+    }
+}
+/* smartphone */
+@media screen and (max-width: 576px) {
+    /* Do not display on smartphone screen */
+    .display-none-sm {
+        display: none;
+    }
+}
+/* small smartphone */
+@media screen and (max-width: 343px) {
+    /* Do not display on small smartphone screen */
+    .display-none-xs {
+        display: none;
+    }
+}
 ::-webkit-input-placeholder { /* WebKit browsers */
     text-transform: none;
 }

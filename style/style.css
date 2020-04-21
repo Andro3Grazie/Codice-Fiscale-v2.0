@@ -31,6 +31,73 @@ body {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 0.250rem;
 }
+/* modal */
+.modal-btn {
+    color: #fff;
+    background-color: rgb(0, 71, 163)!important;
+    border-color: rgb(0, 71, 163)!important;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.modal-btn:hover {
+    opacity: .8;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+/* ------------------- footer ------------------- */
+.page {
+    width: 100%; 
+    height: auto!important;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding-bottom: 140px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    height: 140px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 0.125rem;
+}
+.footer a {
+    text-decoration: none;
+    color: #212529;
+}
+.footer a:hover {
+    color: rgb(0, 71, 163);
+    text-decoration: none;
+    padding-bottom: .05em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    transition: border-color .15s ease-out, color .15s ease-out;
+}
+.contact-icon {
+    cursor: pointer;
+}
+.contact-icon a, .contact-icon  {
+    color: rgb(0, 71, 163);
+}
+.contact-item-hover {
+    color: rgb(0, 71, 163, .6)!important;
+}
+
 @media screen and (min-width: 768px) {
     .jumbotron, .borderStyle {
         width: 720px;

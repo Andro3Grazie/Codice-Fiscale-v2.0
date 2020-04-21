@@ -114,3 +114,19 @@ function reset() {
         `<button type="button" value="Calcola" class="btn color btn-block text-white button" onclick="calculate()">Calcola il codice fiscale</button>`
     );
 }
+
+/* -------------------- Change color on contact link hover -------------------- */
+$(document).ready(function () {
+    $('#contact-item-a').hover(function () {
+        $('#contact-item-b').toggleClass('contact-item-hover');
+        $('#contact-item-c').toggleClass('contact-item-hover');
+    }),
+        $('#contact-item-b').hover(function () {
+            $('#contact-item-a').toggleClass('contact-item-hover');
+            $('#contact-item-c').toggleClass('contact-item-hover');
+        }),
+        $('#contact-item-c').hover(function () {
+            $('#contact-item-a').toggleClass('contact-item-hover');
+            $('#contact-item-b').toggleClass('contact-item-hover');
+        });
+});
