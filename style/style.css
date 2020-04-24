@@ -67,7 +67,7 @@ body {
     margin: 0;
     padding-bottom: 140px;
 }
-.footer{
+.footer {
     position: absolute;
     bottom: 0;
     height: 140px;
@@ -76,11 +76,11 @@ body {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 0.125rem;
 }
-.footer a {
+.footer-name-link {
     text-decoration: none;
     color: #212529;
 }
-.footer a:hover {
+.footer-name-link:hover {
     color: rgb(0, 71, 163);
     text-decoration: none;
     padding-bottom: .05em;
@@ -88,11 +88,12 @@ body {
     border-bottom-style: solid;
     transition: border-color .15s ease-out, color .15s ease-out;
 }
-.contact-icon {
-    cursor: pointer;
-}
 .contact-icon a, .contact-icon  {
+	cursor: pointer;
     color: rgb(0, 71, 163);
+}
+.contact-icon a:hover {
+    border: none;
 }
 .contact-item-hover {
     color: rgb(0, 71, 163, .6)!important;
