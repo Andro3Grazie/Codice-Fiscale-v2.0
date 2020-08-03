@@ -78,7 +78,10 @@ body {
 }
 .footer-name-link {
     text-decoration: none;
-    color: #212529;
+    /* color: #212529; */
+    color: rgb(9, 90, 196);
+    transition: border-color .15s ease-out, color .15s ease-out;
+
 }
 .footer-name-link:hover {
     color: rgb(0, 71, 163);
